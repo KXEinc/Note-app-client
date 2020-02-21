@@ -19,6 +19,8 @@ export const FirebaseState = ({ children }) => {
     showLoader();
     const res = await fetch(`${url}/notes.json`).then(res => res.json());
 
+    if(!res) return null;
+
     const payload = Object.keys(res).map(key => {
       return {
         ...res[key],
@@ -34,7 +36,7 @@ export const FirebaseState = ({ children }) => {
   const addNote = async title => {
     const note = {
       title,
-      data: new Date().toJSON()
+      date: new Date().toJSON()
     };
 
     try {
