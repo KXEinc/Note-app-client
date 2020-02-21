@@ -18,7 +18,7 @@ export const FirebaseState = ({ children }) => {
   const fetchNotes = async () => {
     showLoader();
     const res = await fetch(`${url}/notes.json`).then(res => res.json());
-
+//? see how i can change next line
     if(!res) return null;
 
     const payload = Object.keys(res).map(key => {
